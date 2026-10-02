@@ -18,7 +18,7 @@ CloudWatch Alarm (CPU > 70%)
 CloudWatch Logs → S3 (export task, long-term archive)
 ```
 
-![Architecture](architecture/AWS EC2 Monitoring and Recovery Flow.png)
+![Architecture](architecture/AWS%20EC2%20Monitoring%20and%20Recovery%20Flow.png)
 
 ## AWS Services Used
 
