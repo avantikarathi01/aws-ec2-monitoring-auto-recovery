@@ -13,3 +13,4 @@ archived to a private S3 bucket using a CloudWatch Logs export task.
 ### Verification
 Exported objects appear under `ec2-syslog/<task-id>/<instance-id>/syslog/`.
 See `screenshots/s3-log-archive.png`.
+
