@@ -1,0 +1,15 @@
+## Long-Term Log Archival (Amazon S3)
+
+CloudWatch Logs from `/aws/ec2/aws-monitoring-server` (syslog) are
+archived to a private S3 bucket using a CloudWatch Logs export task.
+
+- Bucket: private, Block Public Access ON, SSE-S3 encryption
+- Access: bucket policy allows only the CloudWatch Logs service,
+  restricted with `aws:SourceAccount` and `aws:SourceArn`
+- Export is a manual/on-demand export task (not continuous streaming)
+- S3 does NOT take part in alarming or recovery. The CPU alarm →
+  SNS → Lambda flow is unchanged.
+
+### Verification
+Exported objects appear under `ec2-syslog/<task-id>/<instance-id>/syslog/`.
+See `screenshots/s3-log-archive.png`.
