@@ -1,0 +1,40 @@
+{
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Sid": "AllowCloudWatchLogsGetBucketAcl",
+			"Effect": "Allow",
+			"Principal": {
+				"Service": "logs.ap-south-1.amazonaws.com"
+			},
+			"Action": "s3:GetBucketAcl",
+			"Resource": "arn:aws:s3:::aws-monitoring-log-archive-2026",
+			"Condition": {
+				"StringEquals": {
+					"aws:SourceAccount": "AWS_ID"
+				},
+				"ArnLike": {
+					"aws:SourceArn": "arn:aws:logs:ap-south-1:AWS_ID:log-group:*"
+				}
+			}
+		},
+		{
+			"Sid": "AllowCloudWatchLogsPutObject",
+			"Effect": "Allow",
+			"Principal": {
+				"Service": "logs.ap-south-1.amazonaws.com"
+			},
+			"Action": "s3:PutObject",
+			"Resource": "arn:aws:s3:::aws-monitoring-log-archive-2026/*",
+			"Condition": {
+				"StringEquals": {
+					"s3:x-amz-acl": "bucket-owner-full-control",
+					"aws:SourceAccount": "AWS_ID"
+				},
+				"ArnLike": {
+					"aws:SourceArn": "arn:aws:logs:ap-south-1:AWS_ID:log-group:*"
+				}
+			}
+		}
+	]
+}
