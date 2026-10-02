@@ -1,0 +1,45 @@
+{
+  "metrics": {
+    "namespace": "AWS/EC2/MonitoringProject",
+    "metrics_collected": {
+      "cpu": {
+        "measurement": [
+          {
+            "name": "cpu_usage_active",
+            "unit": "Percent"
+          }
+        ],
+        "resources": [
+          "*"
+        ],
+        "totalcpu": true
+      },
+      "mem": {
+        "measurement": [
+          "mem_used_percent"
+        ]
+      },
+      "disk": {
+        "measurement": [
+          "used_percent"
+        ],
+        "resources": [
+          "/"
+        ]
+      }
+    }
+  },
+  "logs": {
+    "logs_collected": {
+      "files": {
+        "collect_list": [
+          {
+            "file_path": "/var/log/syslog",
+            "log_group_name": "/aws/ec2/aws-monitoring-server",
+            "log_stream_name": "{instance_id}/syslog"
+          }
+        ]
+      }
+    }
+  }
+}
