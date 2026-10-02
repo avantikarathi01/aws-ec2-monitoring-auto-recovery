@@ -41,7 +41,8 @@ CloudWatch Logs → S3 (export task, long-term archive)
 7. Lambda is invoked and reboots the EC2 instance.
 
 ## Monitoring
-
+### CloudWatch Dashboard
+![Dashboard](screenshots/dashboard.png)
 Custom CloudWatch namespace: `AWS/EC2/MonitoringProject`
 
 Metrics collected: CPU usage, memory used %, disk used % (`/`).
